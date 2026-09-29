@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A1A"/>
+      <stop offset="100%" style="stop-color:#2D2D2D"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" fill="url(#bgGrad)"/>
+  <circle cx="160" cy="160" r="140" fill="none" stroke="#D72323" stroke-width="4"/>
+  <circle cx="160" cy="160" r="130" fill="none" stroke="#FF9A00" stroke-width="2" stroke-dasharray="10,5"/>
+  <text x="160" y="140" font-family="Bebas Neue, sans-serif" font-size="48" fill="#D72323" text-anchor="middle" font-weight="bold">OLD BIKE</text>
+  <text x="160" y="195" font-family="Bebas Neue, sans-serif" font-size="36" fill="#FF9A00" text-anchor="middle">INDONESIA</text>
+  <ellipse cx="160" cy="250" rx="60" ry="20" fill="#D72323" opacity="0.8"/>
+  <path d="M130 250 Q160 220 190 250" fill="none" stroke="#FF9A00" stroke-width="3"/>
+</svg>

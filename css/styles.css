@@ -1,0 +1,156 @@
+/* OLD BIKE INDONESIA - Shared Styles */
+/* Palette:
+   Background: #1A1A1A (Near Black)
+   Accent Red: #D72323 (OBI Red)
+   Accent Orange: #FF9A00 (OBI Orange)
+   Secondary: #4A4A4A (Dark Grey)
+   Card/Surface: #2D2D2D
+   Text: #F8F4F0 (Off-White)
+*/
+
+/* Base */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1A1A1A;
+    color: #F8F4F0;
+    line-height: 1.6;
+}
+
+.font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Color utilities */
+.text-obi-red { color: #D72323; }
+.bg-obi-red { background-color: #D72323; }
+.text-obi-orange { color: #FF9A00; }
+.bg-obi-orange { background-color: #FF9A00; }
+.text-obi-dark { color: #1A1A1A; }
+.bg-obi-dark { background-color: #1A1A1A; }
+.text-obi-light { color: #F8F4F0; }
+.bg-obi-surface { background-color: #2D2D2D; }
+.bg-obi-secondary { background-color: #4A4A4A; }
+.border-obi-secondary { border-color: #4A4A4A; }
+
+/* Structure cards */
+.structure-card {
+    border: 2px solid #4A4A4A;
+    transition: all 0.3s ease;
+}
+
+.structure-card:hover {
+    border-color: #D72323;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(215, 35, 35, 0.2), 0 4px 6px -2px rgba(215, 35, 35, 0.1);
+}
+
+/* Connector lines */
+.connector {
+    width: 2px;
+    background-color: #4A4A4A;
+    margin: 0 auto;
+}
+
+/* Details/summary styling */
+details > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary .arrow-down {
+    transform: rotate(180deg);
+}
+
+.arrow-down {
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+}
+
+/* Mobile menu */
+#mobile-menu a.active {
+    background-color: #2D2D2D;
+    color: #FF9A00;
+}
+
+/* Navigation active state */
+nav a.active {
+    color: #FF9A00;
+}
+
+/* Focus states */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 2px solid #FF9A00;
+    outline-offset: 2px;
+}
+
+/* Hero background helper */
+.hero-bg {
+    background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),
+        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfTmyqi7x0LOk0nGCZl0zDHgBpg8aez3cJ2Mc2h0F5hFUYPJqbCLYRafF2VdFkjTOk5wTiXNuam2VN_hsuVGGhVcQ24_4GzZaWdNCwekUGwYKgusl_AWVL0-hSlaBrLpkNuAxQ0pBIaDOgms9lopX-uhNKB6o3CeCokIBtodmfupbZqPQovKNpExlwIMzI/s5000/ChatGPT%20Image%20Jul%2018,%202025,%2003_35_23%20PM.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .connector {
+        height: 2rem;
+    }
+    
+    .structure-card:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    header, footer, .mobile-only {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .structure-card {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktivitas & Tradisi - OLD BIKE INDONESIA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Bebas+Neue&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#1A1A1A] text-[#F8F4F0]">
+
+<header class="bg-[#1A1A1A]/80 backdrop-blur-md sticky top-0 z-50 shadow-lg">
+    <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <img src="../assets/logo.svg" alt="Logo OBI" class="h-10 w-10 md:h-12 md:w-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/1A1A1A/F8F4F0?text=OBI';">
+            <span class="font-bebas text-2xl md:text-3xl tracking-wider text-[#D72323]">OLD BIKE INDONESIA</span>
+        </div>
+        <div class="hidden md:flex space-x-8">
+            <a href="home.html" class="font-semibold hover:text-[#FF9A00] transition-colors">Home</a>
+            <a href="semangat.html" class="font-semibold hover:text-[#FF9A00] transition-colors">Semangat</a>
+            <a href="struktur.html" class="font-semibold hover:text-[#FF9A00] transition-colors">Struktur</a>
+            <a href="bergabung.html" class="font-semibold hover:text-[#FF9A00] transition-colors">Bergabung</a>
+            <a href="identitas.html" class="font-semibold hover:text-[#FF9A00] transition-colors">Identitas</a>
+            <a href="aktivitas.html" class="font-semibold hover:text-[#FF9A00] transition-colors text-[#FF9A00]">Aktivitas</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden text-[#F8F4F0]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4" />
+            </svg>
+        </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#1A1A1A]">
+        <a href="home.html" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-[#F8F4F0]">Home</a>
+        <a href="semangat.html" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-[#F8F4F0]">Semangat</a>
+        <a href="struktur.html" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-[#F8F4F0]">Struktur</a>
+        <a href="bergabung.html" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-[#F8F4F0]">Bergabung</a>
+        <a href="identitas.html" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-[#F8F4F0]">Identitas</a>
+        <a href="aktivitas.html" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-[#F8F4F0]">Aktivitas</a>
+    </div>
+</header>
+
+<main class="min-h-screen">
+    <section class="py-16 md:py-24 bg-[#1A1A1A]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-bebas text-4xl md:text-6xl tracking-wider text-[#FF9A00]">AKTIVITAS & TRADISI KAMI</h2>
+                <p class="max-w-3xl mx-auto mt-4 text-lg text-[#F8F4F0]">
+                    Dari kopi darat hingga touring nostalgia, inilah cara kami merawat persaudaraan dan kecintaan pada motor tua.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-[#2D2D2D] rounded-lg shadow-lg overflow-hidden p-6 structure-card">
+                    <h3 class="font-bebas text-2xl tracking-wider text-[#D72323]">KOPDAR RUTIN</h3>
+                    <p class="mt-2 text-[#F8F4F0]">Ajang silaturahmi, berbagi cerita, dan sekadar menikmati secangkir kopi bersama saudara seaspal.</p>
+                </div>
+                <div class="bg-[#2D2D2D] rounded-lg shadow-lg overflow-hidden p-6 structure-card">
+                    <h3 class="font-bebas text-2xl tracking-wider text-[#FF9A00]">TOURING NOSTALGIA</h3>
+                    <p class="mt-2 text-[#F8F4F0]">Menjelajahi jalanan, menciptakan kenangan baru sambil mengenang masa lalu bersama motor-motor kesayangan.</p>
+                </div>
+                <div class="bg-[#2D2D2D] rounded-lg shadow-lg overflow-hidden p-6 structure-card">
+                    <h3 class="font-bebas text-2xl tracking-wider text-[#F8F4F0]">BAKTI SOSIAL</h3>
+                    <p class="mt-2 text-[#F8F4F0]">Berbagi dengan sesama adalah bagian dari jiwa kami. Kontribusi kecil untuk masyarakat yang lebih besar.</p>
+                </div>
+                <div class="bg-[#2D2D2D] rounded-lg shadow-lg overflow-hidden p-6 structure-card">
+                    <h3 class="font-bebas text-2xl tracking-wider text-[#D72323]">EDUKASI & PELESTARIAN</h3>
+                    <p class="mt-2 text-[#F8F4F0]">Workshop, pameran, dan diskusi untuk melestarikan pengetahuan dan sejarah motor-motor klasik.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-md italic text-[#F8F4F0]">Detail mengenai tradisi dan etika kebersamaan akan diatur lebih lanjut dalam Peraturan Komunitas OLD BIKE INDONESIA.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-[#1A1A1A] text-[#F8F4F0] py-12 border-t border-[#4A4A4A]">
+    <div class="container mx-auto px-6 text-center">
+        <img src="../assets/logo.svg" alt="Logo OBI" class="h-16 w-16 mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/64x64/1A1A1A/F8F4F0?text=OBI';">
+        <h3 class="font-bebas text-3xl tracking-wider text-[#D72323]">OLD BIKE INDONESIA</h3>
+        <p class="mt-2 text-[#F8F4F0]">Sekretariat Nasional: Batang, Jawa Tengah</p>
+        <p class="text-sm mt-8">&copy; 2025 OLD BIKE INDONESIA. Bersatu dalam Persaudaraan dan Nostalgia.</p>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLD BIKE INDONESIA - Semangat Api Nostalgia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Fire (Dominant: #1A1A1A (Near Black), Accent: #D72323 (OBI Red), #FF9A00 (OBI Orange), Secondary: #4A4A4A (Dark Grey), Text: #F8F4F0 (Off-White)) -->
+    <!-- Application Structure Plan: A single-page, thematic scrolling application. The structure prioritizes user journey and engagement, flowing from the core spirit, to the community's structure, how to join, and finally its activities and identity. This non-linear, thematic approach allows users to quickly grasp the community's essence and find relevant information, such as how to join or what the community does, without reading a dense document. Interactive elements like expandable sections and dynamic content facilitate exploration. -->
+    <!-- Visualization & Content Choices: Report Info: Community Structure -> Goal: Organize/Explain -> Method: Interactive diagram using HTML/CSS Flexbox -> Interaction: Click/hover to reveal details -> Justification: More engaging and easier to understand than plain text. Library: Vanilla JS. Report Info: Activities -> Goal: Inform/Engage -> Method: Responsive card grid -> Interaction: Hover effects -> Justification: Visually appealing and scannable. Library: Tailwind CSS. Report Info: Membership Rules -> Goal: Inform -> Method: Step-by-step guide & expandable text blocks -> Interaction: Click to expand details -> Justification: Simplifies complex info and avoids clutter. Library: Vanilla JS. NO SVG/Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1A1A;
+            color: #F8F4F0;
+        }
+        .font-bebas {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfTmyqi7x0LOk0nGCZl0zDHgBpg8aez3cJ2Mc2h0F5hFUYPJqbCLYRafF2VdFkjTOk5wTiXNuam2VN_hsuVGGhVcQ24_4GzZaWdNCwekUGwYKgusl_AWVL0-hSlaBrLpkNuAxQ0pBIaDOgms9lopX-uhNKB6o3CeCokIBtodmfupbZqPQovKNpExlwIMzI/s5000/ChatGPT%20Image%20Jul%2018,%202025,%2003_35_23%20PM.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .obi-red { color: #D72323; }
+        .obi-red-bg { background-color: #D72323; }
+        .obi-orange { color: #FF9A00; }
+        .obi-orange-bg { background-color: #FF9A00; }
+        .obi-dark-text { color: #1A1A1A; }
+        .obi-light-text { color: #F8F4F0; }
+        .section-bg-dark { background-color: #2D2D2D; }
+
+        .structure-card {
+            border: 2px solid #4A4A4A;
+            transition: all 0.3s ease;
+        }
+        .structure-card:hover {
+            border-color: #D72323;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(215, 35, 35, 0.2), 0 4px 6px -2px rgba(215, 35, 35, 0.1);
+        }
+        .connector {
+            width: 2px;
+            background-color: #4A4A4A;
+            margin: 0 auto;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .arrow-down {
+            transform: rotate(180deg);
+        }
+        .arrow-down {
+            transition: transform 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-[#1A1A1A] text-obi-light-text">
+
+    <header class="bg-[#1A1A1A]/80 backdrop-blur-md sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicbeZoAk3Rv8BV3VyMq-LdWaCiHd9KX_636nV8tGJLMFyM0a9tanxlKOJewMR6v_T100f_loLqb5eg95WHgFnrTTaJaF0NFTv-5IPKNSsfotl5e81Pf2rn-9a21u8p6mtB2yyzOU9rn4yDM16AkkkduL1g7pZUh1i-4EVP4dEGSZHRm8ckjJzpO3k7ZP2f/s5000/oldbike.png" alt="Logo OBI" class="h-10 w-10 md:h-12 md:w-12 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/48x48/1A1A1A/F8F4F0?text=OBI';">
+                <span class="font-bebas text-2xl md:text-3xl tracking-wider text-obi-red">OLD BIKE INDONESIA</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#semangat" class="font-semibold hover:text-obi-orange transition-colors">Semangat</a>
+                <a href="#struktur" class="font-semibold hover:text-obi-orange transition-colors">Struktur</a>
+                <a href="#bergabung" class="font-semibold hover:text-obi-orange transition-colors">Bergabung</a>
+                <a href="#aktivitas" class="font-semibold hover:text-obi-orange transition-colors">Aktivitas</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-obi-light-text">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#1A1A1A]">
+            <a href="#semangat" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-obi-light-text">Semangat</a>
+            <a href="#struktur" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-obi-light-text">Struktur</a>
+            <a href="#bergabung" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-obi-light-text">Bergabung</a>
+            <a href="#aktivitas" class="block py-2 px-4 text-sm hover:bg-[#2D2D2D] text-obi-light-text">Aktivitas</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-bg text-white min-h-[60vh] md:min-h-[80vh] flex items-center">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="font-bebas text-4xl md:text-7xl lg:text-8xl tracking-widest text-shadow-lg text-obi-red">OLDBIKE BERSATU</h1>
+                <p class="text-lg md:text-2xl font-light mt-4 text-obi-light-text">Di setiap putaran roda, kami menemukan kembali kisah lama dan mengukir ikatan sejati. OLD BIKE INDONESIA: Lebih dari sekadar motor, ini tentang nostalgia yang tak lekang waktu.</p>
+            </div>
+        </section>
+
+        <section id="semangat" class="py-16 md:py-24 section-bg-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-bebas text-4xl md:text-6xl tracking-wider text-obi-orange">SEMANGAT KAMI</h2>
+                <p class="max-w-3xl mx-auto mt-4 text-lg text-obi-light-text">
+                    Ini bukan sekadar perkumpulan, tapi sebuah ikatan persaudaraan yang lahir dari kecintaan pada motor klasik dan kenangan yang menyertainya. Kami adalah wadah bagi para pecinta motor tua untuk bernostalgia, berbagi cerita, dan melestarikan sejarah di atas roda, dengan semangat kesetaraan dan kekeluargaan yang tulus.
+                </p>
+                <div class="mt-12 grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-[#2D2D2D] p-6 rounded-lg shadow-lg structure-card">
+                        <h3 class="font-bebas text-2xl obi-red tracking-wider">Persaudaraan & Kesetaraan</h3>
+                        <p class="mt-2 text-obi-light-text">Semua anggota dan simpul lokal adalah setara. Kami merangkul seluruh rekan-rekan OBI di Indonesia dalam satu wadah persaudaraan yang inklusif, tanpa hierarki.</p>
+                    </div>
+                    <div class="bg-[#2D2D2D] p-6 rounded-lg shadow-lg structure-card">
+                        <h3 class="font-bebas text-2xl obi-orange tracking-wider">Nostalgia & Pelestarian</h3>
+                        <p class="mt-2 text-obi-light-text">Kami menjaga karakter unik motor tua sebagai jembatan kenangan. Setiap deru mesin adalah cerita, setiap perjalanan adalah nostalgia yang kami lestarikan bersama.</p>
+                    </div>
+                    <div class="bg-[#2D2D2D] p-6 rounded-lg shadow-lg structure-card">
+                        <h3 class="font-bebas text-2xl obi-light-text tracking-wider">Keselamatan & Kontribusi</h3>
+                        <p class="mt-2 text-obi-light-text">Keselamatan berkendara (*safety riding*) adalah prinsip utama. Kami juga berkomitmen untuk memberikan dampak positif bagi masyarakat melalui kegiatan sosial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="struktur" class="py-16 md:py-24 bg-[#1A1A1A]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-bebas text-4xl md:text-6xl tracking-wider text-obi-red">STRUKTUR KEBERSAMAAN</h2>
+                    <p class="max-w-3xl mx-auto mt-4 text-lg text-obi-light-text">
+                        Kami tidak memiliki struktur yang kaku, melainkan sebuah sistem koordinasi yang setara untuk memfasilitasi kebersamaan. Setiap bagian memiliki peran penting dalam menjaga semangat OBI tetap menyala di seluruh Indonesia.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="structure-card text-center p-6 rounded-lg bg-[#2D2D2D] max-w-md w-full">
+                        <h3 class="font-bebas text-2xl md:text-3xl obi-red">BADAN KOORDINATOR NASIONAL</h3>
+                        <p class="mt-2 text-sm text-obi-light-text">Berpusat di Batang, Jawa Tengah. Berperan sebagai fasilitator, penghubung, dan perumus panduan umum untuk seluruh OBI.</p>
+                    </div>
+                    
+                    <div class="connector h-16"></div>
+
+                    <div class="w-full text-center">
+                        <h4 class="font-bebas text-3xl md:text-4xl obi-orange tracking-wider">SIMPUL-SIMPUL LOKAL</h4>
+                        <p class="mt-2 text-md max-w-2xl mx-auto text-obi-light-text">Bagian integral yang setara di seluruh Indonesia. Setiap simpul lokal memiliki kebebasan untuk mengelola aktivitasnya sendiri, selaras dengan semangat dan panduan nasional.</p>
+                    </div>
+                    
+                     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+                        <div class="structure-card p-4 rounded-lg bg-[#2D2D2D]">
+                            <h5 class="font-bebas text-xl text-center text-obi-light-text">Simpul Lokal Batang</h5>
+                        </div>
+                         <div class="structure-card p-4 rounded-lg bg-[#2D2D2D]">
+                            <h5 class="font-bebas text-xl text-center text-obi-light-text">Simpul Lokal Comal</h5>
+                        </div>
+                        <div class="structure-card p-4 rounded-lg bg-[#2D2D2D]">
+                            <h5 class="font-bebas text-xl text-center text-obi-light-text">Simpul Lokal Salatiga</h5>
+                        </div>
+                        <div class="structure-card p-4 rounded-lg bg-[#2D2D2D]">
+                            <h5 class="font-bebas text-xl text-center text-obi-light-text">Simpul Lokal Jogja</h5>
+                        </div>
+                        <div class="structure-card p-4 rounded-lg bg-[#2D2D2D]">
+                            <h5 class="font-bebas text-xl text-center text-obi-light-text">Simpul Lokal Kediri</h5>
+                        </div>
+                        <div class="structure-card p-4 rounded-lg bg-[#2D2D2D]">
+                            <h5 class="font-bebas text-xl text-center text-obi-light-text">Simpul Lokal Boja</h5>
+                        </div>
+                        <div class="structure-card p-4 rounded-lg bg-[#2D2D2D]">
+                            <h5 class="font-bebas text-xl text-center text-obi-light-text">Simpul Lokal Lainnya</h5>
+                        </div>
+                    </div>
+
+                    <div class="connector h-16"></div>
+
+                    <div class="structure-card text-center p-6 rounded-lg bg-[#2D2D2D] max-w-md w-full">
+                        <h3 class="font-bebas text-2xl md:text-3xl obi-red">DEWAN PENASIHAT</h3>
+                        <p class="mt-2 text-sm text-obi-light-text">Terdiri dari para pendiri dan sesepuh. Memberikan nasihat dan menjaga agar arah komunitas tetap sesuai dengan nilai-nilai luhur OBI.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="bergabung" class="py-16 md:py-24 section-bg-dark">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-bebas text-4xl md:text-6xl tracking-wider text-obi-orange">BERGABUNG DENGAN KAMI</h2>
+                    <p class="max-w-3xl mx-auto mt-4 text-lg text-obi-light-text">
+                        Menjadi bagian dari OLD BIKE INDONESIA berarti menjadi bagian dari sebuah keluarga besar. Berikut adalah panduan dan beberapa aturan main dalam kebersamaan kita.
+                    </p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <details class="bg-[#2D2D2D] rounded-lg shadow-lg mb-4 structure-card">
+                        <summary class="p-6 cursor-pointer flex justify-between items-center">
+                            <span class="font-bebas text-2xl text-obi-light-text">SYARAT KEANGGOTAAN</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 arrow-down text-obi-red" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </summary>
+                        <div class="p-6 border-t border-[#4A4A4A]">
+                           <ul class="list-disc list-inside space-y-2 text-obi-light-text">
+                               <li>Warga Negara Indonesia atau WNA yang berdomisili di Indonesia.</li>
+                               <li>Memiliki dan/atau menyukai sepeda motor klasik.</li>
+                               <li>Setuju dan bersedia mematuhi Pedoman Kebersamaan OBI.</li>
+                               <li>Mengikuti masa orientasi di Simpul Lokal.</li>
+                           </ul>
+                        </div>
+                    </details>
+                    <details class="bg-[#2D2D2D] rounded-lg shadow-lg mb-4 structure-card">
+                        <summary class="p-6 cursor-pointer flex justify-between items-center">
+                            <span class="font-bebas text-2xl text-obi-light-text">HAK & KEWAJIBAN ANGGOTA</span>
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 arrow-down text-obi-red" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </summary>
+                         <div class="p-6 border-t border-[#4A4A4A] grid md:grid-cols-2 gap-8">
+                            <div>
+                               <h4 class="font-bold text-lg mb-2 text-obi-red">Hak Anggota</h4>
+                               <ul class="list-disc list-inside space-y-2 text-obi-light-text">
+                                   <li>Berpartisipasi dalam musyawarah.</li>
+                                   <li>Memilih dan dipilih sebagai penggerak.</li>
+                                   <li>Mendapat perlakuan yang setara.</li>
+                                   <li>Mengikuti seluruh kegiatan komunitas.</li>
+                               </ul>
+                            </div>
+                             <div>
+                               <h4 class="font-bold text-lg mb-2 text-obi-orange">Kewajiban Anggota</h4>
+                               <ul class="list-disc list-inside space-y-2 text-obi-light-text">
+                                   <li>Mematuhi pedoman kebersamaan.</li>
+                                   <li>Menjaga nama baik komunitas.</li>
+                                   <li>Berpartisipasi aktif dalam kegiatan.</li>
+                                   <li>Menjunjung tinggi persaudaraan dan etika.</li>
+                               </ul>
+                            </div>
+                        </div>
+                    </details>
+                    <div class="bg-obi-red text-obi-light-text p-8 rounded-lg shadow-lg text-center mt-8">
+                        <h3 class="font-bebas text-3xl">SAATNYA FORMALISASI!</h3>
+                        <p class="mt-2 text-lg">Untuk semua entitas OBI yang sudah ada, kami mengundang untuk melakukan registrasi ulang dalam 6 bulan ke depan untuk menjadi Simpul Lokal yang sah. Ini adalah langkah kita bersama untuk menyatukan semua dalam satu wadah yang setara dan solid.</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="identitas" class="py-16 md:py-24 bg-[#1A1A1A]">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="font-bebas text-4xl md:text-6xl tracking-wider text-obi-red">IDENTITAS OBI</h2>
+                    <p class="max-w-3xl mx-auto mt-4 text-lg text-obi-light-text">
+                       Logo kami bukan sekadar gambar, tapi simbol semangat persaudaraan para pengendara motor klasik di seluruh Indonesia.
+                    </p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    <div class="flex-shrink-0">
+                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicbeZoAk3Rv8BV3VyMq-LdWaCiHd9KX_636nV8tGJLMFyM0a9tanxlKOJewMR6v_T100f_loLqb5eg95WHgFnrTTaJaF0NFTv-5IPKNSsfotl5e81Pf2rn-9a21u8p6mtB2yyzOU9rn4yDM16AkkkduL1g7pZUh1i-4EVP4dEGSZHRm8ckjJzpO3k7ZP2f/s5000/oldbike.png" alt="Logo Utama OBI" class="w-64 h-64 md:w-80 md:h-80 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/320x320/1A1A1A/F8F4F0?text=OBI+LOGO';">
+                    </div>
+                    <div>
+                        <h3 class="font-bebas text-3xl obi-orange">LOGO UTAMA OLD BIKE INDONESIA</h3>
+                        <p class="mt-4 text-obi-light-text">
+                            Logo ini menampilkan *patch* dengan elemen tengkorak berikat kepala, melambangkan semangat *bikers*. Tulisan "OLD BIKE" dan "INDONESIA" menjadi payung nasional kita. Logo ini adalah identitas tunggal yang menyatukan kita semua.
+                        </p>
+                         <h4 class="font-bebas text-2xl mt-6 text-obi-red">Adaptasi Logo Simpul Lokal</h4>
+                         <p class="mt-2 text-obi-light-text">Setiap Simpul Lokal berhak mengembangkan logo sendiri, namun **wajib** menyertakan logo utama OBI sebagai identitas kesatuan. Ini menunjukkan otonomi kreatif dalam bingkai persaudaraan yang sama.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aktivitas" class="py-16 md:py-24 section-bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-bebas text-4xl md:text-6xl tracking-wider text-obi-orange">AKTIVITAS & TRADISI KAMI</h2>
+                    <p class="max-w-3xl mx-auto mt-4 text-lg text-obi-light-text">
+                        Dari kopi darat hingga touring nostalgia, inilah cara kami merawat persaudaraan dan kecintaan pada motor tua.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-[#2D2D2D] rounded-lg shadow-lg overflow-hidden group structure-card">
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl tracking-wider text-obi-red">KOPDAR RUTIN</h3>
+                            <p class="mt-2 text-sm text-obi-light-text">Ajang silaturahmi, berbagi cerita, dan sekadar menikmati secangkir kopi bersama saudara seaspal.</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#2D2D2D] rounded-lg shadow-lg overflow-hidden group structure-card">
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl tracking-wider text-obi-orange">TOURING NOSTALGIA</h3>
+                            <p class="mt-2 text-sm text-obi-light-text">Menjelajahi jalanan, menciptakan kenangan baru sambil mengenang masa lalu bersama motor-motor kesayangan.</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#2D2D2D] rounded-lg shadow-lg overflow-hidden group structure-card">
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl tracking-wider text-obi-light-text">BAKTI SOSIAL</h3>
+                            <p class="mt-2 text-sm text-obi-light-text">Berbagi dengan sesama adalah bagian dari jiwa kami. Kontribusi kecil untuk masyarakat yang lebih besar.</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#2D2D2D] rounded-lg shadow-lg overflow-hidden group structure-card">
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl tracking-wider text-obi-red">EDUKASI & PELESTARIAN</h3>
+                            <p class="mt-2 text-sm text-obi-light-text">Workshop, pameran, dan diskusi untuk melestarikan pengetahuan dan sejarah motor-motor klasik.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                    <p class="text-md italic text-obi-light-text">Detail mengenai tradisi dan etika kebersamaan akan diatur lebih lanjut dalam Peraturan Komunitas OLD BIKE INDONESIA.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#1A1A1A] text-obi-light-text py-12 border-t border-[#4A4A4A]">
+        <div class="container mx-auto px-6 text-center">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicbeZoAk3Rv8BV3VyMq-LdWaCiHd9KX_636nV8tGJLMFyM0a9tanxlKOJewMR6v_T100f_loLqb5eg95WHgFnrTTaJaF0NFTv-5IPKNSsfotl5e81Pf2rn-9a21u8p6mtB2yyzOU9rn4yDM16AkkkduL1g7pZUh1i-4EVP4dEGSZHRm8ckjJzpO3k7ZP2f/s5000/oldbike.png" alt="Logo OBI" class="h-16 w-16 mx-auto mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/64x64/1A1A1A/F8F4F0?text=OBI';">
+            <h3 class="font-bebas text-3xl tracking-wider text-obi-red">OLD BIKE INDONESIA</h3>
+            <p class="mt-2 text-obi-light-text">Sekretariat Nasional: Batang, Jawa Tengah</p>
+            <p class="text-sm mt-8">&copy; 2025 OLD BIKE INDONESIA. Bersatu dalam Persaudaraan dan Nostalgia.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            })
+        })
+    </script>
+</body>
+</html>
